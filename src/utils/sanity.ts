@@ -18,6 +18,21 @@ export async function getPost(slug: string): Promise<Post> {
   );
 }
 
+export async function getPages(): Promise<Page[]> {
+  return await sanityClient.fetch(
+    groq`*[_type == "page" && defined(slug.current)] | order(_createdAt desc)`
+  );
+}
+
+export async function getPage(slug: string): Promise<Page> {
+  return await sanityClient.fetch(
+    groq`*[_type == "page" && slug.current == $slug][0]`,
+    {
+      slug,
+    }
+  );
+}
+
 export interface Post {
   _type: "post";
   _createdAt: string;
@@ -26,4 +41,14 @@ export interface Post {
   excerpt?: string;
   mainImage?: ImageAsset;
   body: PortableTextBlock[];
+}
+
+export interface Page {
+  _type: "page";
+  _createdAt: string;
+  title?: string;
+  slug: Slug;
+  excerpt?: string;
+  mainImage?: ImageAsset;
+  body: any[];
 }

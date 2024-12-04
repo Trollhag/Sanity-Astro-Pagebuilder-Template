@@ -1,8 +1,8 @@
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'post',
-  title: 'Post',
+  name: 'page',
+  title: 'Page',
   type: 'document',
   fields: [
     defineField({
@@ -14,7 +14,7 @@ export default defineType({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
       options: {
         source: 'title',
         maxLength: 96,
@@ -37,7 +37,7 @@ export default defineType({
     defineField({
       name: 'body',
       title: 'Body',
-      type: 'content',
+      type: 'blocks',
     }),
   ],
   preview: {
