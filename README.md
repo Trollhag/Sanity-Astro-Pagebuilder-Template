@@ -1,4 +1,4 @@
-# A minimal Astro site with Sanity Studio
+# A minimal Astro site with Sanity Studio with a pagebuilder
 
 This starter uses [Astro](https://astro.build/) for the front end and [Sanity](https://sanity.io/) to handle its content.
 
@@ -24,16 +24,17 @@ Run the following commands
    - output a `.env` file with appropriate variables
    - _(or use `sanity init --env` if you have the CLI installed)_
 
-3. `npm run dev` to start the development server
+3. Update project name in `package.json` and `sanity.config.ts`
+4. `npm run dev` to start the development server
 
 Your Astro app should now be running on [http://localhost:4321/](http://localhost:4321/) and Studio on [http://localhost:4321/admin](http://localhost:4321/admin).
 
 ### Add content
 
-1. Visit the Studio and create and publish a new `Post` document
+1. Visit the Studio and create and publish a new `Page` document with slug `/`
 2. Visit the homepage and refresh the page to see your content rendered on the page
 
-The schema for the `Post` document is defined in the `/schema` folder. You can [add more document types](https://www.sanity.io/docs/schema-types) to the Studio to suit your needs.
+The schema for the `Page` document is defined in the `/schema` folder. You can [add more document types](https://www.sanity.io/docs/schema-types) to the Studio to suit your needs.
 
 ## Removing TypeScript
 
